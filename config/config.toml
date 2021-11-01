@@ -1,0 +1,113 @@
+[application]
+mode = "dev"  #dev开发环境 test测试环境 prod线上环境
+host = "0.0.0.0"
+name =  "WikiBit"
+port= 8003
+
+[mysql]                                                #mysql数据配置
+driver_name = "mysql"                                   #数据库
+#dsn = "root:WikiBank#888@(127.0.0.1:3306)/escompany"  #连接源
+dsn = "root:123456@(127.0.0.1:3306)/wikifx_trade_contest?charset=utf8mb4&parseTime=True&loc=Local"  #连接源
+#dsn = "root:123456@(192.168.1.63:3306)/wikibit"  #连接源
+max_open_conns = 10                                     #最大打开连接数
+max_idle_conns = 4                                    #最大活动连接数
+
+[rediscluster]                                         #redis集群
+#addrs = ["192.168.1.69:9001","192.168.1.69:9002","192.168.1.69:9003","192.168.1.69:9004","192.168.1.69:9005","192.168.1.69:9006"]
+addrs = "127.0.0.1:6379"
+password = ""                                    #密码
+dial_timeout = 10                                      #超时时间
+pool_size = 20                                         #连接池大小
+
+[log]
+path = "./logs/"
+
+[api]
+auth_token = "k,01eNZWJV4tM#G}+#^*-JGp"                #认证令牌
+allow_path_prefix_skipper = ["/api/v1/oauth/smsSend","/api/v1/oauth/login","/api/v1/oauth/register","/api/v1/oauth/validateCode","/api/v1/oauth/quickLogin","/api/v1/oauth/thirdPartyLogin","/api/v1/oauth/sendCode","/api/v1/oauth/getWeChatOpenId","/api/v1/oauth/validateRegisterPhone","/api/v1/oauth/thirdRegister","/api/v1/oauth/getQqOpenId",
+    "/api/v1/oauth/appleVerify","/api/v1/oauth/geetest","/api/v1/oauth/getGraphCode","/api/v1/findConfigure","/api/v1/findAwards","/api/v1/findSponsor","/api/v1/oauth/getFbOpenId","/api/v1/findApply","/api/v1/oauth/loginV2","/api/v1/getCity"] #过滤路由不验证
+
+[url]
+website = "http://192.168.1.145:8080/"
+
+[usercenter]
+#user = "https://oce.fx696.com:5200/"              #用户中心
+#sign_url = "https://oce.fx696.com:59105/"         #签名线上地址
+sign_url = "http://192.168.1.71:59103/"    #测试环境
+
+test_url = "http://192.168.1.71:59103/"    #测试环境
+prod_url = "https://oce.fx696.com:59105/"  #线上环境
+user = "http://192.168.1.71:5100/Wikifx2-UC/"         #用户模块地址
+user1 = "http://192.168.1.71:5100/"         #用户模块地址
+#user = "https://oce.fx696.com:5200/"
+#sms = "http://192.168.1.166:9100/"         #短信模块
+sms = "http://192.168.1.71:5100/Wikifx2-UC/"
+trade_url = "http://192.168.1.71:5100/"         #交易商test
+#trade_url = "https://oce.fx696.com:5200/"      #交易商线上
+
+
+[skyeyecloud]
+test_url = "http://192.168.200.142:7325/"    #测试环境
+#test_url = "http://172.21.247.25:7325/"    #生产环境
+#prod_url = "https://oce.fx696.com:59105/"  #线上环境
+trade_json_url = "http://rating.fx696.com/eahost/ext/eabrokers.json"
+
+
+[email]
+host = "smtp.mxhichina.com"
+port = 465
+username = "bank@wikifx.vip"
+password = "Bank2020"
+content_type = "text/plain"
+
+# 静态资源
+[staticresources]
+url = "http://192.168.1.83:7070/"
+
+[nsq]
+host = "127.0.0.1"
+port = "4150"
+
+[wechat]
+gateway = "https://api.weixin.qq.com/"
+#app_id = "wx57bbd35823c0a084"
+#app_secret = "0187863a8ac9cf06b14612d48735f1f4"
+app_id = "wx644c5d227b8acb1e"
+app_secret = "d759ca1110b1edd3f23817b4725c4c6f"
+
+[qq]
+gateway = "https://graph.qq.com/"
+app_id = "101933254"
+app_key = "9f1c67ae71970408d5e08d8d2d14079b"
+
+[fb]
+gateway = "https://graph.facebook.com/"
+app_id = "282616837045022"
+secret = "590561ba7dd1fd91658366ed2929a91b"
+redirect_uri = "https://eawikifx.com/"
+
+[encryption]
+aes_secret_key = "TexduFFgHL9JIEZf"
+
+[es]
+hosts = ["http://127.0.0.1:9200","http://127.0.0.1:9201","http://127.0.0.1:9202"]
+#hosts = ["http://47.103.89.17:9200","http://47.103.89.17:9201","http://47.103.89.17:9202"]
+#hosts = ["http://es-cn-09k1xfmcz000kgspy.public.elasticsearch.aliyuncs.com:9200"]
+#hosts = ["http://es-cn-09k1xfmcz000kgspy.elasticsearch.aliyuncs.com:9200"]
+#hosts = ["http://es-cn-09k1xfmcz000kgspy.public.elasticsearch.aliyuncs.com:9200"]
+username = "elastic"
+#password = "Wiki123$"
+#password = "RPBO9q17zCYYN2eCzihk"
+password = "elastic123"
+
+# 静态资源路径
+[staticpath]
+path = "public/file/"
+
+[ucloud]
+gateway = "https://api.ucloud.cn/"
+public_key = "WQpX7n6hJE0nvFw95W7X8_kN3ov7VFbrY6gNUi9e"
+private_key = "hVcd3uX1-aQ2gejitzMN-Qspvp6lZI-vUFAytMdLcWfXc4hEK-v5YdqEe2wGlFEl"
+
+
+

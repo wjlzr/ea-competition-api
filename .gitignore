@@ -1,0 +1,12 @@
+.vscode
+*.exe
+*.log
+*.test
+*.profile
+*.json
+*.zip
+.idea
+src/cmd/*
+src/public/images
+src/test
+__debug_bin
